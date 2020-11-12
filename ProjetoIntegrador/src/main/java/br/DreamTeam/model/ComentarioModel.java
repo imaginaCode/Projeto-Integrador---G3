@@ -28,12 +28,12 @@ public class ComentarioModel {
 
 	// CHAVES ESTRANGEIRAS
 	@ManyToOne
-	@JsonIgnoreProperties("comentarios")
+	@JsonIgnoreProperties({"comentarios","postagem"})
 	@NotNull
 	private UsuarioModel usuario;
 
 	@ManyToOne
-	@JsonIgnoreProperties("comentarios")
+	@JsonIgnoreProperties({"comentarios","usuario"})
 	@NotNull
 	private PostagemModel postagem;
 

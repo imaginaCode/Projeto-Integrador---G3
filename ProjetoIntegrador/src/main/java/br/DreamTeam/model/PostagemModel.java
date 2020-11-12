@@ -31,7 +31,7 @@ public class PostagemModel
 	
 	//CHAVES ESTRANGEIRAS
 	@ManyToOne
-	@JsonIgnoreProperties("postagens")
+	@JsonIgnoreProperties({"postagem","comentarios"})
 	@NotNull
 	private UsuarioModel usuario;
 	

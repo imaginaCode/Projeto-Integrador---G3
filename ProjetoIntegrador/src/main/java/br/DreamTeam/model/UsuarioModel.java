@@ -39,7 +39,7 @@ public class UsuarioModel
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usuario")
-	private List<PostagemModel> postagens;
+	private List<PostagemModel> postagem;
 	
 	@OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usuario")
@@ -72,11 +72,12 @@ public class UsuarioModel
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public List<PostagemModel> getPostagens() {
-		return postagens;
+	
+	public List<PostagemModel> getPostagem() {
+		return postagem;
 	}
-	public void setPostagens(List<PostagemModel> postagens) {
-		this.postagens = postagens;
+	public void setPostagem(List<PostagemModel> postagem) {
+		this.postagem = postagem;
 	}
 	public List<ComentarioModel> getComentarios() {
 		return comentarios;
