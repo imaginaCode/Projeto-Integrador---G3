@@ -38,14 +38,14 @@ public class PostagemController implements WebMvcConfigurer
 		
 			//CRUD
 			//CREATE --> POST
-			@PostMapping ("/")
+			@PostMapping 
 			public ResponseEntity<PostagemModel> criar(@RequestBody PostagemModel postagem)
 			{
 				return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));	
 			}
 			
 			//READ --> GET
-			@GetMapping ("/")
+			@GetMapping 
 			public ResponseEntity<List<PostagemModel>> buscarTodos() 
 			{		
 				return ResponseEntity.ok(repository.findAll());
@@ -62,7 +62,7 @@ public class PostagemController implements WebMvcConfigurer
 			@GetMapping ("/tema/{tema}")
 			public ResponseEntity<List<PostagemModel>> buscarPorTema(@PathVariable TemaModel tema) 
 			{		
-				return ResponseEntity.ok(repository.findByTemaContainingIgnoreCase(tema));
+				return ResponseEntity.ok(repository.findByTema(tema));
 						
 			}
 			

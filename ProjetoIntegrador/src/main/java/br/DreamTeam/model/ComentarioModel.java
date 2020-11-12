@@ -9,54 +9,51 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_comentario")
-public class ComentarioModel 
-{
+public class ComentarioModel {
 
-	@Id 
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_comentario;
-	
-	//CHAVES ESTRANGEIRAS
+
+	// CHAVES ESTRANGEIRAS
 	@ManyToOne
 	@JsonIgnoreProperties("comentarios")
 	@NotNull
 	private UsuarioModel usuario;
-	
+
 	@ManyToOne
 	@JsonIgnoreProperties("comentarios")
 	@NotNull
 	private PostagemModel postagem;
-	
-	
 
-
-	
 	@Column
 	@NotNull
-	private String artigo;//VERIFICAR SE NÃO TEM NENHUM TIPO TEXT
-	
-	
-	@Column
-	@JsonFormat(pattern="yyyy-mm-dd")//VERIFICAR COMO COLOCA A DATA AUTOMÁTICA
-	private Date data;
-	
+	private String artigo;// VERIFICAR SE NÃO TEM NENHUM TIPO TEXT
+
+	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Temporal(TemporalType.TIMESTAMP)
+	@CreationTimestamp
+	private Date data = new java.sql.Date(System.currentTimeMillis());
+
 	@Column
 	private Boolean curtir;
-	
-	//GETTERS AND SETTERS
-	
+
+	// GETTERS AND SETTERS
 
 	public UsuarioModel getUsuario() {
 		return usuario;
 	}
-
 
 	public void setUsuario(UsuarioModel usuario) {
 		this.usuario = usuario;
@@ -69,7 +66,6 @@ public class ComentarioModel
 	public void setPostagem(PostagemModel postagem) {
 		this.postagem = postagem;
 	}
-
 
 	public String getArtigo() {
 		return artigo;
@@ -95,18 +91,12 @@ public class ComentarioModel
 		this.curtir = curtir;
 	}
 
-
 	public Long getId_comentario() {
 		return id_comentario;
 	}
-
 
 	public void setId_comentario(Long id_comentario) {
 		this.id_comentario = id_comentario;
 	}
 
-	
-	
-	
-	
 }

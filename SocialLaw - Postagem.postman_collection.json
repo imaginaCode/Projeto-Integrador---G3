@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "fe70b689-1a01-473e-bd75-54bc98a14545",
+		"name": "SocialLaw - Postagem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "buscar todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/postagem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"postagem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inserir dados",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"titulo\" : \"A nova lei do mercado\",\r\n  \"artigo\" : \"o mercado esta em alta perante as leis novas de abertura\",\r\n  \"curtir\" : false,\r\n  \"tema\" : {\r\n\t\"id_tema\" :  1\r\n  },\r\n  \"usuario\" : {\r\n\t\"id_usuario\" : 1\r\n  }\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/postagem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"postagem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alterar por ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": {\r\n        \"id_usuario\": 1\r\n    },\r\n    \"tema\": {\r\n        \"id_tema\": 2\r\n    },    \r\n    \"titulo\": \"emprego alcançado\",\r\n    \"artigo\": \"estamos aqui de novo\",    \r\n    \"curtir\": false\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/postagem/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"postagem",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apagar por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/postagem/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"postagem",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Tema",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/postagem/tema/nova",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"postagem",
+						"tema",
+						"nova"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Titulo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/postagem/titulo/nada",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"postagem",
+						"titulo",
+						"nada"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/postagem/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"postagem",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

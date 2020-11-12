@@ -10,7 +10,7 @@ import br.DreamTeam.model.TemaModel;
 public interface PostagemRepository extends JpaRepository<PostagemModel, Long> 
 {
 
-	List<PostagemModel> findByTemaContainingIgnoreCase(TemaModel tema);
+	List<PostagemModel> findByTema(TemaModel tema);
 
 	List<PostagemModel> findByTituloContainingIgnoreCase(String titulo);
 

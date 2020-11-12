@@ -59,11 +59,9 @@ public class TemaController implements WebMvcConfigurer
 				}
 				
 				@GetMapping ("/nome/{nome}")
-				public ResponseEntity<TemaModel> buscarPorNome(@PathVariable String nome) 
+				public ResponseEntity<List<TemaModel>> buscarPorNome(@PathVariable String nome) 
 				{		
-					return repository.findByNomeContainingIgnoreCase(nome)
-							.map(temaNome -> ResponseEntity.ok(temaNome))
-							.orElse(ResponseEntity.notFound().build());
+					return ResponseEntity.ok(repository.findByNomeContainingIgnoreCase(nome));
 				}
 				
 				//UPDATE --> PUT
