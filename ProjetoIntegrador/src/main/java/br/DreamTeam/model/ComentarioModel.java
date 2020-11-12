@@ -44,7 +44,7 @@ public class ComentarioModel {
 	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreationTimestamp
-	private Date data = new java.sql.Date(System.currentTimeMillis());
+	private Date data ;
 
 	@Column
 	private Boolean curtir;

@@ -38,11 +38,11 @@ public class UsuarioModel
 	//CHAVES ESTRANGEIRAS
 	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("usuario")
+	@JsonIgnoreProperties({"usuario","comentarios"})
 	private List<PostagemModel> postagem;
 	
 	@OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("usuario")
+	@JsonIgnoreProperties({"usuario"})
 	private List<ComentarioModel> comentarios;
 	
 	
