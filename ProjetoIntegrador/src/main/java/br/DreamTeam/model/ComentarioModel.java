@@ -33,7 +33,7 @@ public class ComentarioModel {
 	private UsuarioModel usuario;
 
 	@ManyToOne
-	@JsonIgnoreProperties({"comentarios","usuario"})
+	@JsonIgnoreProperties({"comentarios"})
 	@NotNull
 	private PostagemModel postagem;
 
