@@ -23,16 +23,13 @@ public class UsuarioModel
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id_usuario;
 	
-	@NotNull
-	@Size(max= 100)
+	@NotNull	
 	private String nome;
 	
-	@NotNull
-	@Size(max= 100)
-	private String login;
+	@NotNull	
+	private String usuario;
 	
-	@NotNull
-	@Size(max= 20)
+	@NotNull	
 	private String senha;
 	
 	//CHAVES ESTRANGEIRAS
@@ -60,11 +57,12 @@ public class UsuarioModel
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getLogin() {
-		return login;
+	
+	public String getUsuario() {
+		return usuario;
 	}
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 	public String getSenha() {
 		return senha;
