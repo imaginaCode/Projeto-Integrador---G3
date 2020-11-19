@@ -1,0 +1,5 @@
+package br.DreamTeam.service;
+
+public class UsuarioService {
+
+}
