@@ -1,4 +1,4 @@
-package br.DreamTeam.seguranca;
+package br.DreamTeam.securanca;
 
 import java.util.Optional;
 
@@ -12,16 +12,17 @@ import br.DreamTeam.model.UsuarioModel;
 import br.DreamTeam.repository.UsuarioRepository;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class userDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private UsuarioRepository userRepository;
-	
+
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<UsuarioModel> user = userRepository.findByUsuario(username);
-		user.orElseThrow(()-> new UsernameNotFoundException(username + ". not found"));
-		return user.map(UserDetailsImpl :: new).get();
+	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+		Optional<UsuarioModel> user = userRepository.findByUsuario(userName);
+		user.orElseThrow(() -> new UsernameNotFoundException(userName + "not found."));
+		return user.map(UserDetailsImpl::new).get(); // pq tem :: seguidos ?
+
 	}
 
 }

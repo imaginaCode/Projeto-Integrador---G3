@@ -38,7 +38,7 @@ public class PostagemController implements WebMvcConfigurer
 		
 			//CRUD
 			//CREATE --> POST
-			@PostMapping
+			@PostMapping 
 			public ResponseEntity<PostagemModel> criar(@RequestBody PostagemModel postagem)
 			{
 				return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));	

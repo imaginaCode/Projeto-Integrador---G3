@@ -1,37 +1,34 @@
-package br.DreamTeam.seguranca;
+package br.DreamTeam.securanca;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import br.DreamTeam.model.UsuarioModel;
 
-public class UserDetailsImpl implements UserDetails {
-
+public class UserDetailsImpl implements UserDetails{
 	
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
+	
 	
 	private String userName;
 	private String password;
-	private List<GrantedAuthority> authorities;
-	
-	
-	
-	public UserDetailsImpl() 
-	{
-		
-	}
 	
 	public UserDetailsImpl(UsuarioModel user) {
+		// TODO Auto-generated constructor stub
 		this.userName = user.getUsuario();
 		this.password = user.getSenha();
+	}
+	
+	public UserDetailsImpl() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return authorities;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override

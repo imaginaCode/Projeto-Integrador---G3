@@ -1,7 +1,6 @@
 package br.DreamTeam.model;
 
-
-public class UsuarioLogin {
+public class UserLogin {
 	
 	private String nome;
 	
@@ -10,10 +9,7 @@ public class UsuarioLogin {
 	private String senha;
 	
 	private String token;
-	
-	
-	
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -45,6 +41,7 @@ public class UsuarioLogin {
 	public void setToken(String token) {
 		this.token = token;
 	}
+	
 	
 	
 	

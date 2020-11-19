@@ -12,6 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -27,10 +32,12 @@ public class PostagemModel
 	//CHAVES ESTRANGEIRAS
 	@ManyToOne
 	@JsonIgnoreProperties({"postagem","comentarios"})
+	@NotNull
 	private UsuarioModel usuario;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
+	@NotNull
 	private TemaModel tema;
 	
 	@OneToMany(mappedBy = "postagem", cascade = CascadeType.ALL)
@@ -40,15 +47,18 @@ public class PostagemModel
 	
 	
 	@Column
+	@NotNull
 	private String titulo;
 	
 	@Column
+	@NotNull
 	private String artigo;//VERIFICAR SE NÃO TEM NENHUM TIPO TEXT
 	
 	
-	@Column
-	@JsonFormat(pattern="yyyy-mm-dd")
-	private Date data;
+	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Temporal(TemporalType.TIMESTAMP)
+	@CreationTimestamp
+	private Date data ;
 	
 	@Column
 	private Boolean curtir;
